@@ -55,7 +55,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/MovieApp.git
+git clone https://anxhelino04/interactive-movies-app.git
 cd MovieApp
 Install dependencies:
 

@@ -1,0 +1,33 @@
+.favourites-container {
+    max-width: 1440px;
+    margin: 20px auto;
+    padding: 20px;
+  
+    .favourites-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+  
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+  
+    .empty-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
+  }
+  
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  

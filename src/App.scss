@@ -1,0 +1,61 @@
+// App.scss
+body[data-theme="light"] {
+    --background-color: #f8f9fa; // Light background
+    --text-color: #333333; // Dark text for light theme
+    --header-background: #ffffff; // White header
+    --card-background: #ffffff; // White cards
+    --input-background: #f0f0f0; // Light input
+    --pagination-active: #001529; // Accent color
+    --primary-color: #001529; // Consistent with Ant Design
+  }
+  
+  body[data-theme="dark"] {
+    --background-color: #181818; // Dark background
+    --text-color: #eaeaea; // Light text for dark theme
+    --header-background: #121212; // Dark header
+    --card-background: #1f1f1f; // Dark cards
+    --input-background: #2c2c2c; // Dark input
+    --pagination-active: #1a73e8; // Bright blue
+    --primary-color: #1a73e8; // Accent for buttons
+  }
+  
+  // Generic styles for consistent theming
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .ant-layout {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .ant-card {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-input {
+    background-color: var(--input-background);
+    color: var(--text-color);
+  }
+  
+  .ant-pagination-item-active {
+    background-color: var(--pagination-active);
+    border-color: var(--pagination-active);
+  }
+  
+  .ant-btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .ant-menu-dark {
+    background-color: var(--header-background);
+  }
+  

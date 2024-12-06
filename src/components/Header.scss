@@ -1,0 +1,90 @@
+.header {
+    // width: 100%;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    z-index: 100;
+    margin-bottom: 40px;
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; // Ensure wrapping for smaller screens
+  
+      .logo-container {
+        text-align: center;
+        flex: 1;
+  
+        .logo {
+          font-size: 24px;
+          font-weight: bold;
+          color: var(--header-logo-color);
+          margin: 0;
+        }
+      }
+      :where(.css-dev-only-do-not-override-1wwf28x).ant-switch .ant-switch-inner .ant-switch-inner-unchecked {
+        margin-top: -22px;
+        margin-inline-start: 0;
+        color: #181818 !important;
+        margin-inline-end: 0;
+    }
+    
+  
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex: 1;
+  
+        .nav-link {
+          font-size: 16px;
+          text-decoration: none;
+          color: var(--header-link-color);
+          transition: color 0.3s ease;
+  
+          &:hover {
+            color: var(--header-link-hover-color);
+          }
+        }
+      }
+  
+      .theme-switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+  
+        .ant-switch {
+          background-color: var(--button-background-color);
+  
+          &.ant-switch-checked {
+            background-color: var(--button-hover-background-color);
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column; // Stack items vertically
+        text-align: center;
+  
+        .nav-links {
+          margin: 10px 0;
+          gap: 15px; // Adjust spacing between links
+        }
+  
+        .theme-switch {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  

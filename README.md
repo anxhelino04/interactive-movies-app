@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+MovieApp
+MovieApp is a React-based web application that allows users to search for movies using the OMDb API, view detailed information about each movie, save their favorite movies, and toggle between light and dark themes for a personalized user experience.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Search Movies: Search for movies by title using a responsive search bar with real-time updates (debounce mechanism).
+Movie Details: View detailed information about movies, including title, genre, release year, plot, ratings, director, and actors.
+Favorites: Save and remove favorite movies, with persistent storage in the browser's localStorage.
+Pagination: Navigate through movie search results using a modern, responsive pagination system.
+Theme Switcher: Toggle between light and dark themes.
+Responsive Design: The app is fully responsive and adapts seamlessly to different screen sizes.
+Live Demo
+You can find a live demo of this project hosted at Live Demo Link (update with the actual link after deployment).
 
-## Available Scripts
+Tech Stack
+React: A JavaScript library for building user interfaces.
+React Router: For routing and navigation between pages.
+Axios: For making HTTP requests to the OMDb API.
+Ant Design (AntD): For UI components such as buttons, inputs, and pagination.
+SCSS: For custom styling and maintaining a consistent design system.
+Lodash: For debouncing the search functionality.
+LocalStorage: To persist user favorites across sessions.
+Project Structure
+bash
+Copy code
+MovieApp/
+│
+├── src/
+│ ├── components/ # Reusable UI components
+│ │ ├── MovieCard.jsx # Displays individual movie cards
+│ │ ├── Header.jsx # Application header with navigation and theme toggle
+│ │ ├── Pagination.jsx # Custom pagination component
+│ │
+│ ├── views/ # Main pages
+│ │ ├── Home.jsx # Home page with movie search and listing
+│ │ ├── Favourites.jsx # Favourites page displaying saved movies
+│ │ ├── MovieDetails.jsx # Detailed view of a movie
+│ │
+│ ├── Context/ # Context for global state management
+│ │ ├── MainContext.jsx # Context for managing theme, movies, and favorites
+│ │
+│ ├── App.js # Main app entry point
+│ ├── index.js # Renders the app to the DOM
+│ └── styles/ # Global and component-specific SCSS
+│
+├── public/ # Public files
+├── .env # API key and environment variables
+├── package.json # Project dependencies and scripts
+└── README.md # Project documentation
+Getting Started
+Prerequisites
+Node.js (v14 or later)
+npm or yarn
+Setup Instructions
+Clone the repository:
 
-In the project directory, you can run:
+bash
+Copy code
+git clone https://github.com/your-username/MovieApp.git
+cd MovieApp
+Install dependencies:
 
-### `npm start`
+bash
+Copy code
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# OR
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+yarn install
+Create an .env file in the root directory:
 
-### `npm test`
+env
+Copy code
+REACT_APP_OMDB_API_KEY=your_api_key_here
+Replace your_api_key_here with your OMDb API key. You can get a free API key from OMDb API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run the application:
 
-### `npm run build`
+bash
+Copy code
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# OR
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+yarn start
+The app will be available at http://localhost:3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run tests (if applicable):
 
-### `npm run eject`
+bash
+Copy code
+npm test
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# OR
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+yarn test
+Third-Party Libraries
+Ant Design
+Why? To provide ready-to-use, modern, and customizable UI components such as buttons, inputs, and pagination, ensuring consistency and reducing development time.
+Axios
+Why? To handle HTTP requests to the OMDb API efficiently with built-in support for promises and error handling.
+React Router
+Why? For declarative routing and navigation between different views (Home, Movie Details, Favourites).
+Lodash (Debounce)
+Why? To optimize search functionality by limiting the frequency of API calls when the user types in the search bar.
+SCSS
+Why? For modular and maintainable styles, allowing us to create a clean and consistent design system.

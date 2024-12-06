@@ -61,9 +61,7 @@ const Home = () => {
 
       {/* Movies Section */}
       {loading ? (
-        <div className="loading-container">
-          <Spin size="large" />
-        </div>
+        <Spin size="large" />
       ) : movies.length > 0 ? (
         <div
           className={`movies-grid ${

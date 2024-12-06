@@ -5,6 +5,7 @@ import { Input, Spin, Empty } from "antd";
 import { MainContext } from "../Context/MainContext";
 import Pagination from "../components/Pagination";
 import { debounce } from "lodash";
+import { VideoCameraOutlined } from "@ant-design/icons"; // Movie icon
 
 const Home = () => {
   const {
@@ -61,7 +62,9 @@ const Home = () => {
 
       {/* Movies Section */}
       {loading ? (
-        <Spin size="large" />
+        <div className="loading-container">
+          <Spin size="large" />
+        </div>
       ) : movies.length > 0 ? (
         <div
           className={`movies-grid ${
@@ -71,8 +74,16 @@ const Home = () => {
             <MovieCard key={movie.imdbID} movie={movie} />
           ))}
         </div>
+      ) : searchInput.trim() === "" ? (
+        <div className="no-search-container">
+          <VideoCameraOutlined style={{ fontSize: "64px", color: "#aaa" }} />
+          <p>Start typing to search for your favorite movies!</p>
+        </div>
       ) : (
-        <Empty className="no-results" description="No movies found" />
+        <Empty
+          className="no-results"
+          description="No movies found. Try another search."
+        />
       )}
 
       {/* Pagination */}

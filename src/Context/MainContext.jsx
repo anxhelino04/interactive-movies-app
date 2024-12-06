@@ -52,24 +52,25 @@ export const MainProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const addToFavorites = (movie) => {
-    setFavorites((prev) => {
-      const alreadyFavorited = prev.some((fav) => fav.imdbID === movie.imdbID);
-      if (alreadyFavorited) {
-        return prev;
-      }
-      const updatedFavorites = [...prev, movie];
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites)); // Save to localStorage
-      return updatedFavorites;
-    });
-  };
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(storedFavorites);
+  }, []);
 
-  const removeFromFavorites = (movieID) => {
-    setFavorites((prev) => {
-      const updatedFavorites = prev.filter((movie) => movie.imdbID !== movieID);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites)); // Save to localStorage
-      return updatedFavorites;
-    });
+  const [favourites, setFavourites] = useState([]);
+  const toggleFavorite = (movie) => {
+    const isFavorited = favorites.some((fav) => fav.imdbID === movie.imdbID);
+    const updatedFavorites = isFavorited
+      ? favorites.filter((fav) => fav.imdbID !== movie.imdbID) // Remove
+      : [...favorites, movie]; // Add
+
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+  const removeFavorite = (movieID) => {
+    const updatedFavorites = favorites.filter((fav) => fav.imdbID !== movieID);
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   return (
@@ -79,8 +80,8 @@ export const MainProvider = ({ children }) => {
         toggleTheme,
         movies,
         favorites,
-        addToFavorites,
-        removeFromFavorites,
+        toggleFavorite,
+        removeFavorite,
         fetchMovies,
         loading,
         currentPage,

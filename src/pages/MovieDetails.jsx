@@ -67,11 +67,7 @@ const MovieDetails = () => {
   };
 
   if (loading) {
-    return (
-      <div className="details-loading">
-        <Spin size="large" />
-      </div>
-    );
+    return <Spin className="spinner" size="large" />;
   }
 
   if (error || !movie) {

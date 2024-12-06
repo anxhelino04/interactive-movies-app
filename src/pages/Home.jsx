@@ -59,16 +59,23 @@ const Home = () => {
         </div>
       </div>
 
-      <div
-        className={`movies-grid ${movies.length === 1 ? "single-movie" : ""}`}>
-        {loading ? (
-          <Spin size="large" style={{ margin: "auto" }} />
-        ) : movies.length ? (
-          movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)
-        ) : (
-          <Empty description="No movies found" />
-        )}
-      </div>
+      {/* Movies Section */}
+      {loading ? (
+        <div className="loading-container">
+          <Spin size="large" />
+        </div>
+      ) : movies.length > 0 ? (
+        <div
+          className={`movies-grid ${
+            movies.length === 1 ? "single-movie" : ""
+          }`}>
+          {movies.map((movie) => (
+            <MovieCard key={movie.imdbID} movie={movie} />
+          ))}
+        </div>
+      ) : (
+        <Empty className="no-results" description="No movies found" />
+      )}
 
       {/* Pagination */}
       {!loading && totalResults > 10 && (
